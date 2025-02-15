@@ -26,7 +26,7 @@ class UserService:
             )
             user_id = cur.fetchone()[0]
             conn.commit()
-            return User(username, None, user_id)
+            return User(username, user_id)
         except Exception as e:
             print('Error', e)
             return None
@@ -42,7 +42,7 @@ class UserService:
             cur.execute('SELECT id, username, password, is_admin FROM users WHERE username=%s;', (username,))
             data = cur.fetchone()
             if data and check_password(password, data[2]):
-                return User(data[1], None, data[0], is_admin=data[3])
+                return User(data[1], data[0], is_admin=data[3])
         except Exception as e:
             print('Error', e)
         finally:
