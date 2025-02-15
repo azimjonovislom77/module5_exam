@@ -59,7 +59,7 @@ def todo_menu(user):
             break
 
 
-def main():
+def run():
     current_user = None
     while True:
         print(menu_color('Register       --->   1'))
@@ -137,4 +137,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    run()
