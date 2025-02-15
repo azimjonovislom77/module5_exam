@@ -21,16 +21,16 @@ def create_table():
         print('Error to conn base')
         return
     cur = conn.cursor()
-    cur.execute("""
+    cur.execute('''
         CREATE TABLE IF NOT EXISTS users (
             id SERIAL PRIMARY KEY,
             username VARCHAR(100) UNIQUE NOT NULL,
             password TEXT NOT NULL,
             is_admin BOOLEAN DEFAULT FALSE
         );
-    """)
+    ''')
 
-    cur.execute("""
+    cur.execute('''
         CREATE TABLE IF NOT EXISTS todos (
             id SERIAL PRIMARY KEY,
             user_id INT REFERENCES users(id) ON DELETE CASCADE,
@@ -38,7 +38,7 @@ def create_table():
             description TEXT NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
-    """)
+    ''')
 
     conn.commit()
     cur.close()
