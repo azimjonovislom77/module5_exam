@@ -12,7 +12,7 @@ class User:
         self.created_at = created_at or datetime.now()
 
     def __str__(self):
-        return f"User(id={self.id}, username='{self.username}', is_admin={self.is_admin})"
+        return f'User(id={self.id}, username={self.username}, is_admin={self.is_admin})'
 
 
 class Todo:
