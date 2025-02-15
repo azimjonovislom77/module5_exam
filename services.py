@@ -88,7 +88,7 @@ class TodoService:
         try:
             cur.execute('SELECT id, title, description FROM todos WHERE user_id=%s;', (user_id,))
             todos = cur.fetchall()
-            return [Todo(row[0], row[1], row[2], user_id) for row in todos]
+            return [Todo(i[0], i[1], i[2], user_id) for i in todos]
         except Exception as e:
             print('Error', e)
             return []
